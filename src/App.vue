@@ -2,14 +2,18 @@
 import { useResize } from '@/hooks/useResize.ts'
 
 const { screenRef } = useResize()
+
+import Container from './containers/scale-screen/index'
 </script>
 
 <template>
-  <div class="screen-container">
+  <Container> <img src="./assets/image.png" alt="" /> </Container>
+
+  <!-- <div class="screen-container">
     <div ref="screenRef" class="screen-wrapper">
       <img src="./assets/image.png" alt="" />
     </div>
-  </div>
+  </div> -->
 </template>
 
 <style scoped>
