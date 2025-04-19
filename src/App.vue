@@ -1,30 +1,33 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import { useResize } from '@/hooks/useResize.ts'
+
+const { screenRef } = useResize()
 </script>
 
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div class="screen-container">
+    <div ref="screenRef" class="screen-wrapper">
+      <img src="./assets/image.png" alt="" />
+    </div>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.screen-container {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+  background-size: 100% 100%;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+.screen-wrapper {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.5s;
+  width: 1920px;
+  height: 1080px;
+  position: relative;
+  transform-origin: 0 0;
+  overflow: hidden;
 }
 </style>
